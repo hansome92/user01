@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}View User{% endblock %}
+
+{% block content %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h4>User View</h4>
+                </div>
+                <table class="table">
+                    <tr>
+                      <th>Username</th>
+                      <th>Birthday</th>
+                      <th>Eligible</th>
+                      <th>Random Number</th>
+                      <th>BizzFuzz</th>
+                      <th>Delete</th>
+                    </tr>
+                    {% for d in data %}
+                    <tr>
+                        <td>
+                            <a href="/user/edit/{{ d.username }}">{{ d.username }}</a>
+
+                        </td>
+                        <td>
+                            {{ d.birthday }}
+                        </td>
+                        <td>
+                            {{ d.eligible }}
+                        </td>
+                        <td>
+                            {{ d.random }}
+                        </td>
+                        <td>
+                            {{ d.BizzFuzz }}
+                        </td>
+                        <td>
+                            <a href="/user/delete/{{ d.username }}/" class="red"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <a href="/user/add" class="btn btn-default">Add User</a>
+        </div>
+
+
+{% endblock %}
